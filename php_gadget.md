@@ -1,5 +1,6 @@
 # php gadget
 
+```
 __construct   当一个对象创建时被调用，
 __toString   当一个对象被当作一个字符串被调用。
 __wakeup()   使用unserialize时触发
@@ -17,3 +18,4 @@ __isset() //在不可访问的属性上调用isset()或empty()触发
 __unset() //在不可访问的属性上使用unset()时触发
 __toString() //把类当作字符串使用时触发
 __invoke() //当脚本尝试将对象调用为函数时触发
+```
