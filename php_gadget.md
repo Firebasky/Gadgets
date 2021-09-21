@@ -1,5 +1,11 @@
 # php gadget
 
+一般挖掘思路是找__destruct、__wakeup、__toString等方法
+```
+echo unserialize($data)  会触发 __toString 方法
+```
+
+## 魔术方法
 ```
 __construct   当一个对象创建时被调用，
 __toString   当一个对象被当作一个字符串被调用。
