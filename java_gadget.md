@@ -20,18 +20,10 @@ HashMap#hashCode
 PriorityQueue
 Hashtable
 HashSet  
-  
-C3P0
-PoolBackedDataSourceBase
-
-tostring
 BadAttributeValueExpException
 
-BadAttributeValueExpException badAttributeValueExpException = new BadAttributeValueExpException("");
-Field valField = BadAttributeValueExpException.class.getDeclaredField("val");
-valField.setAccessible(true);
-valField.set(badAttributeValueExpException,xxxxx);
-
+C3P0
+PoolBackedDataSourceBase
 
 Vaadin
 NestedMethodProperty
@@ -156,6 +148,20 @@ field1.setAccessible(true);
 field1.set(expression, valueExpression);
 ```
 
+HashSet
+    
+```
+HashSet hashSet = new HashSet(1);
+hashSet.add(entry);
+```
+
+BadAttributeValueExpException 触发toString
+```
+BadAttributeValueExpException badAttributeValueExpException = new BadAttributeValueExpException("");
+Field valField = BadAttributeValueExpException.class.getDeclaredField("val");
+valField.setAccessible(true);
+valField.set(badAttributeValueExpException,xxxxx);
+```
 
 
 ## 写文件
