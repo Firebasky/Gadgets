@@ -2,6 +2,7 @@
 
 一般挖掘思路是找__destruct、__wakeup、__toString等方法
 ```
+eg：
 echo unserialize($data)  会触发 __toString 方法
 ```
 
@@ -25,3 +26,13 @@ __unset() //在不可访问的属性上使用unset()时触发
 __toString() //把类当作字符串使用时触发
 __invoke() //当脚本尝试将对象调用为函数时触发
 ```
+
+## 触发__toString
+1. echo($obj) / print($obj) 将其打印出来的时候。
+2. "I am {$obj}" / 'test ' . $obj 字符串连接。
+3. sprintf("I am %s", $obj) 格式化字符串。
+4. if($obj == 'admin') 与字符串进行==比较的时候（从此也可以印证，PHP进行==比较的时候会转换参数类型）。
+5. 格式化SQL语句，绑定参数的时候会被调用。
+6. in_array($obj, ['admin', 'guest'])，数组中有字符串的时候会被调用。
+
+
