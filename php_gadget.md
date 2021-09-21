@@ -35,4 +35,14 @@ __invoke() //当脚本尝试将对象调用为函数时触发
 5. 格式化SQL语句，绑定参数的时候会被调用。
 6. in_array($obj, ['admin', 'guest'])，数组中有字符串的时候会被调用。
 
+## 真实案例
+利用好__call魔法方法，下面的代码利用好就可以返回任意对象或者值。
+```php
+public function __call($method)
+{
+    return $method;
+}
+```
+
+
 
