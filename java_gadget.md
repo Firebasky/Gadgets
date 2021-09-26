@@ -10,8 +10,11 @@
 反序列化过程==**类的加载+创建对象+调用readObject**
 
 hint:
+
 Externalizable接口是serializable子类。其中有readExternal方法和writeExternal方法。
+
 实现了Externalizable接口，在其反序列化的时候会触发readExternal。
+
 
 ## 思路
 Java序列化 基本上找readobject 然后看里面的方法和我们可以控制的参数基本上参数是通过构造方法获得的，然后利用方法去触发下一个方法。或者是利用代理触发invoke方法需要满足代码东西实现invokeHaeder方法。
