@@ -201,4 +201,9 @@ PropertyDescriptor[] pds = BeanIntrospector.getPropertyDescriptors(this._beanCla
  Method pReadMethod = pds[i].getReadMethod();
  Object value = pReadMethod.invoke(this._obj, NO_PARAMS);
 ```
+### ysoserial exploit/JRMPClient
+1、exploit/JRMPClient与exploit/RMIRegistryExploit类似，可以攻击任何RMIServer，但exploit/JRMPClient是通过dgc通信进行攻击，而exploit/RMIRegistryExploit是通过bind方法绑定恶意payload进行攻击。
 
+2、exploit/JRMPClient可以结合payloads/JRMPListener进行攻击，但exploit/RMIRegistryExploit不能结合payloads/JRMPListener进行攻击
+
+3、JEP 290之后，对RMI注册表和分布式垃圾收集（DGC）新增了内置过滤器，以上攻击方式均失效了。
