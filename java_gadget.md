@@ -211,3 +211,12 @@ PropertyDescriptor[] pds = BeanIntrospector.getPropertyDescriptors(this._beanCla
 
 3、JEP 290之后，对RMI注册表和分布式垃圾收集（DGC）新增了内置过滤器，以上攻击方式均失效了。
 ```
+###  ysoserial exploit/JRMPListener
+
+```
+1、攻击方在自己的服务器使用exploit/JRMPListener开启一个rmi监听
+
+2、往存在漏洞的服务器发送payloads/JRMPClient，payload中已经设置了攻击者服务器ip及JRMPListener监听的端口，
+漏洞服务器反序列化该payload后，会去连接攻击者开启的rmi监听，在通信过程中，攻击者服务器会发送一个可执行命令的payload
+（假如存在漏洞的服务器中有使用org.apacje.commons.collections包，则可以发送CommonsCollections系列的payload），从而达到命令执行的结果。
+```
