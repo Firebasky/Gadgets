@@ -204,7 +204,8 @@ PropertyDescriptor[] pds = BeanIntrospector.getPropertyDescriptors(this._beanCla
 ### ysoserial exploit/JRMPClient
 
 ```
-1、exploit/JRMPClient与exploit/RMIRegistryExploit类似，可以攻击任何RMIServer，但exploit/JRMPClient是通过dgc通信进行攻击，而exploit/RMIRegistryExploit是通过bind方法绑定恶意payload进行攻击。
+1、exploit/JRMPClient与exploit/RMIRegistryExploit类似，可以攻击任何RMIServer，但exploit/JRMPClient是通过dgc通信进行攻击，
+而exploit/RMIRegistryExploit是通过bind方法绑定恶意payload进行攻击。
 
 2、exploit/JRMPClient可以结合payloads/JRMPListener进行攻击，但exploit/RMIRegistryExploit不能结合payloads/JRMPListener进行攻击
 
