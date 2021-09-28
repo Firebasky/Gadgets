@@ -165,6 +165,9 @@ HashSet
 
 cc11中
 ```
+ * java.util.HashSet.readObject()
+ *   java.util.HashMap.put()
+ *   java.util.HashMap.hash()
 //触发hashset
 HashSet hashset = new HashSet(1);
 hashset.add("foo");
