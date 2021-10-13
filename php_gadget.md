@@ -35,6 +35,7 @@ __invoke() //当脚本尝试将对象调用为函数时触发
 5. 格式化SQL语句，绑定参数的时候会被调用。
 6. in_array($obj, ['admin', 'guest'])，数组中有字符串的时候会被调用。
 7. file_exists() 触发
+8. if(preg_match("/gopher|http|file|ftp|https|dict|\.\./i", $this->source)) 进行比较的时候
 
 ## 触发phar
 1. 触发 is_dir()
