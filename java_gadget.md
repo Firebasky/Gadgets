@@ -285,3 +285,12 @@ String finalExp = "service:jmx:rmi:///stub/" + Temp.getExp();//jmx协议
 RMIConnector rmiConnector = new RMIConnector(new JMXServiceURL(finalExp), new HashMap<>());//jmx连接
 
 ```
+### 绕过
+
+>https://forum.butian.net/share/125
+
+>https://mp.weixin.qq.com/s/OxeYufM-ZX_SdbV5zjWV7A
+
+com.sun.org.apache.xalan.internal.xsltc.trax用java.rmi.MarshalledObject代替。
+
+相当于二次反序列化。
