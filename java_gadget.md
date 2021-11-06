@@ -22,6 +22,7 @@ Java序列化 基本上找readobject 然后看里面的方法和我们可以控�
 ## readobject
 
 ```java
+java.beans.PropertyChangeSupport#put->AnnotationInvocationHandler
 AnnotationInvocationHandler
 HashMap#hashCode
 PriorityQueue
