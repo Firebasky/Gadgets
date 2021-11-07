@@ -27,7 +27,7 @@ AnnotationInvocationHandler
 HashMap#hashCode
 PriorityQueue
 Hashtable
-HashSet  
+HashSet#put  可以绕过HashMap的限制.  
 BadAttributeValueExpException
 
 C3P0
