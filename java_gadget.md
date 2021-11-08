@@ -26,7 +26,7 @@ java.beans.PropertyChangeSupport#put->AnnotationInvocationHandler
 AnnotationInvocationHandler
 HashMap#hashCode
 PriorityQueue
-Hashtable
+Hashtable#hashcode 直接触发hashcode
 HashSet#put  可以绕过HashMap的限制.  
 BadAttributeValueExpException
 
@@ -208,6 +208,13 @@ keyField.set(node,evil);
 ```
 HashSet hashSet = new HashSet(1);
 hashSet.add(entry);
+```
+
+Hashtable
+是触发hashcode的方法。
+```
+Hashtable map = new Hashtable();
+map.put(root,"Sie");
 ```
 
 BadAttributeValueExpException 触发toString
