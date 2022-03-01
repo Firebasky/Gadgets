@@ -25,6 +25,7 @@ Java序列化 基本上找readobject 然后看里面的方法和我们可以控�
 java.beans.PropertyChangeSupport#put->AnnotationInvocationHandler
 AnnotationInvocationHandler
 HashMap#hashCode
+TreeMap#hashCode
 PriorityQueue
 Hashtable#hashcode 直接触发hashcode
 HashSet#put  可以绕过HashMap的限制.  
